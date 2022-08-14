@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <app-header></app-header>
+    <app-content></app-content>
+    <app-footer></app-footer>
+  </div>
+
+  <div id="app2">
+    <app-header></app-header>
+    <app-footer></app-footer>
+  </div>
+
+  <!-- vue.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  <script>
+    /*
+    뷰 컴포넌트: 화면의 영역을 구분하여 개발할 수 있는 뷰의 기능(재사용성이 핵심 이유)
+    */
+
+    // 전역 컴포넌트(실제 업무에서는 전역으로 사용할 일 별로 없을 것이다!)
+    //  Vue.component(컴포넌트 이름, 컴포넌트 내용);
+    Vue.component('app-header', {
+      template: '<h1>Header</h1>',
+    });
+    Vue.component('app-content', {
+      template: '<div>content</div>',
+    });
+
+    new Vue({
+      el: '#app',   // id=app인 element 지정
+      components: {   // 지역 컴포넌트 등록 방식. 컴포넌트 여러 개 등록하기 때문에 복수 사용
+        'app-footer': {
+          template: '<footer>footer</footer>'
+        }
+      },
+    });
+
+    new Vue({
+      el: '#app2',
+    });
+  </script>
+</body>
+
+</html>
