@@ -24,6 +24,10 @@
     <div v-show="loading">
       test
     </div>
+
+    <!-- input 박스 만들기 -->
+    <input v-model="message" placeholder="edit me" />
+    <p>Message is: {{ message }}</p>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -37,7 +41,7 @@
         uuid: 'abc',
         name: 'text-blue',
         loading: true,
-
+        message: '',
       },
       computed: {   // 계산된 속성
         doubleNum: function() {
