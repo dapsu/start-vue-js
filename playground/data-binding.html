@@ -12,6 +12,18 @@
     {{ str }}
     <p>{{ num }}</p>
     <p>{{ doubleNum }}</p>
+    <!-- v-bind를 통해 id 속성에 data의 uuid 속성으로 설정 -->
+    <p v-bind:id="uuid" v-bind:class="name">{{ num }}</p>
+    <div v-if="loading">
+      loading...
+    </div>
+    <div v-else>
+      test user has been logged in
+    </div>
+    <!-- v-if와 v-show의 차이: v-if는 조건에 부합하지 않을 때 태그 자체가 없어짐. 반면에 v-show는 display 속성이 none으로 바뀌 -->
+    <div v-show="loading">
+      test
+    </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -22,6 +34,10 @@
       data: {
         str: 'Data Binding!!!',
         num: 10,
+        uuid: 'abc',
+        name: 'text-blue',
+        loading: true,
+
       },
       computed: {   // 계산된 속성
         doubleNum: function() {
