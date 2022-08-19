@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  .warning {
+    color: red;
+  }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- 클래스를 data 말고 computed의 함수를 통해서도 나타낼 수 있음 -->
+    <p v-bind:class="errorTextColor">Hello</p>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        // cname: 'blue-text',
+        isError: false
+      },
+      computed: {
+        errorTextColor: function() {
+          // if (isError) {
+          //   return 'warning'
+          // } else {
+          //   return null;
+          // }
+          return this.isError ? 'warning' : null;
+        }
+      }
+    });
+  </script>
+</body>
+</html>
