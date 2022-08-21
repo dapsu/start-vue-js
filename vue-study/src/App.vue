@@ -1,28 +1,36 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <button @click="increment">{{ count }}</button>
+    <ul>
+      <li v-for="dude in friends" v-bind:key="dude">{{ dude }}</li>
+    </ul>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  // 상태: 앱을 작동하는 원본 소스
+  data() {
+    return {
+      count: 10,
+      friends: ['giri', 'wooni', 'seph', 'mini', 'bae'],
+    }
+  },
+  mounted() {
+    // this는 컴포넌트 인스턴스를 참조
+    this.increment();
+  },
+  // 뷰: 상태의 선언적 매핑
+  template: '<div>{{ count }}</div>',
+  // 액션: 뷰에서 사용자 입력에 대해 반응적으로 상태 변겅
+  methods: {
+    increment: function() {
+      this.count++;
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
